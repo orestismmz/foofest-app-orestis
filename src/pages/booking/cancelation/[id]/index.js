@@ -9,6 +9,20 @@ export default function Cancelation() {
     e.preventDefault();
     const reservationEmail = e.target.reservationEmail.value;
     console.log(reservationEmail);
+
+    fetch(`/api/final-post?reservationID=${id}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((error) => {
+        console.log("Error:", error);
+      });
   }
 
   return (
