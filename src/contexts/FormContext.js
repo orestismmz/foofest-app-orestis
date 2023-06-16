@@ -35,9 +35,9 @@ const initialState = {
     ],
     fixedFee: 99,
     totalPrice: 0,
-    id: null,
     modal: false,
   },
+  id: null,
   expirationDate: null,
 };
 
@@ -47,13 +47,10 @@ const formReducer = (state, action) => {
   switch (action.type) {
     case "UPDATE_FIELD":
       const { section, field, value } = action.payload;
-      if (section === "id") {
+      if (field === "id") {
         return {
           ...state,
-          formData: {
-            ...state.formData,
-            [section]: value,
-          },
+          id: value,
         };
       }
       if (section === "tentData") {

@@ -6,7 +6,7 @@ import Cards from "react-credit-cards-2";
 import "react-credit-cards-2/dist/es/styles-compiled.css";
 
 const PaymentForm = () => {
-  const { formData } = useContext(FormContext);
+  const { formData, id } = useContext(FormContext);
   const dispatch = useContext(DispatchContext);
   const [state, setState] = useState({
     number: "",
@@ -18,7 +18,7 @@ const PaymentForm = () => {
 
   async function fulfillReservation() {
     const payload = {
-      id: formData.id,
+      id: id,
     };
     const supabasePayload = {
       ticketType: formData.ticketData.ticketType,
@@ -29,6 +29,7 @@ const PaymentForm = () => {
       x3tents: formData.tentData.x3tents.amount,
       attendees: formData.attendees,
       totalPrice: formData.totalPrice,
+      reservationID: id,
     };
     await Promise.all([
       fetch("https://hollow-glowing-gladiolus.glitch.me/fullfill-reservation", {

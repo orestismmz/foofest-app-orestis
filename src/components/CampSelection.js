@@ -5,7 +5,7 @@ import TentSelection from "./TentSelection";
 import styles from "@/components/CampSelection.module.css";
 
 const CampSelection = () => {
-  const { formData, spots, expirationDate } = useContext(FormContext);
+  const { formData, spots, expirationDate, id } = useContext(FormContext);
   const dispatch = useContext(DispatchContext);
   const [errors, setErrors] = useState([]);
 
@@ -42,17 +42,17 @@ const CampSelection = () => {
     })
       .then((response) => response.json())
       .then((data) => {
-        // console.log(data);
-        if (!formData.id) {
+        console.log(data);
+        if (!id) {
           const fetchedId = data.id;
 
           dispatch({
             type: "UPDATE_FIELD",
-            payload: { section: "id", value: fetchedId },
+            payload: { field: "id", value: fetchedId },
           });
         }
 
-        // console.log(formData.id);
+        // console.log(id);
       })
       .catch((error) => {
         console.log("Error occurred while fetching or updating id:", error);
@@ -67,9 +67,7 @@ const CampSelection = () => {
     }
 
     if (formData.tentData.tentRemainder > 1) {
-      errors.push(
-        "Your chosen amount of tents is too low. Please adjust your selection."
-      );
+      errors.push("Your chosen amount of tents is too low. Please adjust your selection.");
     }
 
     if (errors.length === 0) {

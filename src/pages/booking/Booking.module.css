@@ -1,3 +1,69 @@
 .body {
   color: white;
 }
+.cancelWrapper {
+  color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 2rem;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+.form {
+  color: white;
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+.id {
+  color: rgb(85, 179, 124);
+}
+.cancelLabel {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.cancelInput {
+  height: 2.5rem;
+  width: 23rem;
+  padding: 1rem;
+  border-radius: 6px;
+  border: none;
+}
+
+.cancelH3 {
+  padding-top: 1rem;
+}
+.cancelP {
+  justify-self: start;
+  padding-top: 3rem;
+  width: 23rem;
+}
+
+.cancelButton {
+  background: none;
+  border: 2px solid white;
+  outline: none;
+  cursor: pointer;
+  color: white;
+  width: 9rem;
+  padding: 1rem;
+  border-radius: 10px;
+}
+.cancelButton:hover {
+  background: white;
+  border: none;
+  border: 2px solid white;
+  cursor: pointer;
+  color: rgb(0, 0, 0);
+  width: 9rem;
+  padding: 1rem;
+  border-radius: 10px;
+}

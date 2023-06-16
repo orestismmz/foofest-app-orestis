@@ -18,6 +18,16 @@
   padding: 1rem;
   border-radius: 10px;
 }
+.cancelButton {
+  font-size: 0.9rem;
+  text-decoration: underline;
+}
+
+.thankYouButtons {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
 
 .ticket {
   max-width: 50%;
