@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import styles from "../../Booking.module.css";
+import handler from "@/pages/api/cancelReservation";
 
 export default function Cancelation() {
   const router = useRouter();
@@ -8,21 +9,7 @@ export default function Cancelation() {
   function handleSubmit(e) {
     e.preventDefault();
     const reservationEmail = e.target.reservationEmail.value;
-    console.log(reservationEmail);
-
-    fetch(`/api/final-post?reservationID=${id}`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-      })
-      .catch((error) => {
-        console.log("Error:", error);
-      });
+    handler(id, reservationEmail);
   }
 
   return (
